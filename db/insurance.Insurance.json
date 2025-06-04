@@ -1,0 +1,77 @@
+[{
+  "_id": {
+    "$oid": "683ca56ee29bb62e2cae357f"
+  },
+  "addOns": [
+    "Engine Protection",
+    ""
+  ],
+  "vehiclePhotos": [
+    "uploads/1748804973989-ai-image-1746101157131.jpg",
+    "uploads/1748804974064-ai-image-1746101155039.jpg",
+    "uploads/1748804974096-ai-image-1746101153428.jpg"
+  ],
+  "status": "Approved",
+  "planName": "Third-Party Liability Insurance",
+  "type": "Third-Party",
+  "coverage": "ok",
+  "exclusions": "ok",
+  "premium": 1500,
+  "validity": "1 year",
+  "eligibility": "Availables",
+  "vehicleType": "Car",
+  "name": "Customer",
+  "email": "customer@gmail.com",
+  "vehicleNo": "TN 01 AA 1234",
+  "address": "No1, 123 street, chennai - 600001",
+  "mobile": "9876543210",
+  "location": "Mayiladuthurai",
+  "policyNumber": "POL0000321",
+  "planDateCreated": {
+    "$date": "2025-06-01T11:44:14.608Z"
+  },
+  "insuranceDateCreated": {
+    "$date": "2025-06-01T19:09:33.930Z"
+  },
+  "__v": 0,
+  "agentemail": "agent@gmail.com",
+  "mobile1": "9876543210"
+},
+{
+  "_id": {
+    "$oid": "683d1753e435762b407bca44"
+  },
+  "addOns": [
+    "Engine Protection",
+    "NCB Shield"
+  ],
+  "vehiclePhotos": [
+    "uploads/1748834131053-ai-image-1746214320051.jpg",
+    "uploads/1748834131249-ai-image-1746214310118.jpg",
+    "uploads/1748834131390-generated_image_3621.png"
+  ],
+  "status": "Pending",
+  "agentemail": "",
+  "planName": "Third-Party Liability Insurance",
+  "type": "Third-Party",
+  "coverage": "Covers legal liability for injury, death, or property damage to a third party caused by the insured vehicle.",
+  "exclusions": "Own vehicle damage, drunk driving, driving without a license.",
+  "premium": 1199,
+  "validity": "1 year",
+  "eligibility": "All registered private vehicles in India",
+  "vehicleType": "Car",
+  "name": "Customer",
+  "email": "customer@gmail.com",
+  "vehicleNo": "TN 01 AA 1234",
+  "address": "No,1 234 street, chennai.001",
+  "mobile": "9876543210",
+  "location": "Ambattur, Chennai",
+  "policyNumber": "POL0000322",
+  "planDateCreated": {
+    "$date": "2025-06-02T03:04:52.330Z"
+  },
+  "insuranceDateCreated": {
+    "$date": "2025-06-02T03:15:30.953Z"
+  },
+  "__v": 0
+}]

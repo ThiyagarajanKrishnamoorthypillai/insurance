@@ -1,0 +1,140 @@
+[{
+  "_id": {
+    "$oid": "683c3d0e79eba542b00e10b8"
+  },
+  "addOns": [
+    "Engine Protection",
+    ""
+  ],
+  "isActive": true,
+  "adminemail": "admin@gmail.com",
+  "planName": "Third-Party Liability Insurance",
+  "type": "Third-Party",
+  "coverage": "ok",
+  "exclusions": "ok",
+  "premium": 1500,
+  "validity": "1 year",
+  "eligibility": "Availables",
+  "vehicleType": "Car",
+  "dateCreated": {
+    "$date": "2025-06-01T11:44:14.608Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d14d4e435762b407bc9e7"
+  },
+  "addOns": [
+    "Engine Protection",
+    "NCB Shield"
+  ],
+  "isActive": true,
+  "adminemail": "admin@gmail.com",
+  "planName": "Third-Party Liability Insurance",
+  "type": "Third-Party",
+  "coverage": "Covers legal liability for injury, death, or property damage to a third party caused by the insured vehicle.",
+  "exclusions": "Own vehicle damage, drunk driving, driving without a license.",
+  "premium": 1199,
+  "validity": "1 year",
+  "eligibility": "All registered private vehicles in India",
+  "vehicleType": "Car",
+  "dateCreated": {
+    "$date": "2025-06-02T03:04:52.330Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d1515e435762b407bc9eb"
+  },
+  "addOns": [
+    "Engine Protection",
+    "Roadside Assistance",
+    "Zero Depreciation"
+  ],
+  "isActive": true,
+  "adminemail": "admin@gmail.com",
+  "planName": "Comprehensive Insurance",
+  "type": "Comprehensive",
+  "coverage": "Includes own damage, third-party liability, theft, fire, and natural disasters.",
+  "exclusions": "War, nuclear risks, mechanical breakdowns.",
+  "premium": 1500,
+  "validity": "1 year",
+  "eligibility": "Vehicles under 10 years old with valid registration.",
+  "vehicleType": "Commercial",
+  "dateCreated": {
+    "$date": "2025-06-02T03:05:57.052Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d1560e435762b407bc9ed"
+  },
+  "addOns": [
+    "Zero Depreciation",
+    "Personal Accident Cover"
+  ],
+  "isActive": true,
+  "adminemail": "admin@gmail.com",
+  "planName": "Zero Depreciation Plan",
+  "type": "Add-on",
+  "coverage": "Full claim without considering depreciation of parts.",
+  "exclusions": "Plastic or glass components without full damage.",
+  "premium": 1400,
+  "validity": "1 year",
+  "eligibility": "Cars under 5 years old.",
+  "vehicleType": "All",
+  "dateCreated": {
+    "$date": "2025-06-02T03:07:12.325Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d159de435762b407bc9ef"
+  },
+  "addOns": [
+    "NCB Protector",
+    "Invoice Cover",
+    "Roadside Assistance"
+  ],
+  "isActive": true,
+  "adminemail": "admin@gmail.com",
+  "planName": "Return to Invoice Cover",
+  "type": "Corporate",
+  "coverage": "Returns invoice value in case of total loss or theft of company vehicle.\n\n",
+  "exclusions": "Fraudulent claims, expired registration.",
+  "premium": 2000,
+  "validity": "1 year",
+  "eligibility": "Corporate fleets only.",
+  "vehicleType": "Commercial",
+  "dateCreated": {
+    "$date": "2025-06-02T03:08:13.689Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d15d5e435762b407bc9f1"
+  },
+  "addOns": [
+    "Roadside Assistance",
+    "Engine Protection"
+  ],
+  "isActive": true,
+  "adminemail": "admin@gmail.com",
+  "planName": "Roadside Assistance Plan",
+  "type": "Add-on",
+  "coverage": "Towing, battery jump-start, flat tire, emergency fuel delivery.",
+  "exclusions": "Service outside coverage zone.",
+  "premium": 1700,
+  "validity": "1 year",
+  "eligibility": "Vehicles within city limits.",
+  "vehicleType": "Commercial",
+  "dateCreated": {
+    "$date": "2025-06-02T03:09:09.974Z"
+  },
+  "__v": 0
+}]

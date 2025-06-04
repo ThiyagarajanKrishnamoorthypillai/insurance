@@ -1,0 +1,110 @@
+[{
+  "_id": {
+    "$oid": "683bed0d234db421e488c216"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Mayiladuthurai",
+  "dateCreated": {
+    "$date": "2025-06-01T06:02:53.597Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d163de435762b407bca08"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Hyderabad",
+  "dateCreated": {
+    "$date": "2025-06-02T03:10:53.323Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d1645e435762b407bca0c"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Kumbakonam",
+  "dateCreated": {
+    "$date": "2025-06-02T03:11:01.753Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d164de435762b407bca10"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Chennai",
+  "dateCreated": {
+    "$date": "2025-06-02T03:11:09.786Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d1658e435762b407bca14"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Ambattur, Chennai",
+  "dateCreated": {
+    "$date": "2025-06-02T03:11:20.991Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d1666e435762b407bca18"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Saravanapatti, Coimbatore",
+  "dateCreated": {
+    "$date": "2025-06-02T03:11:34.450Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d1678e435762b407bca1c"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Rock Fort, Trichy",
+  "dateCreated": {
+    "$date": "2025-06-02T03:11:52.766Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d1686e435762b407bca20"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Anna Nagar, Chennai",
+  "dateCreated": {
+    "$date": "2025-06-02T03:12:06.572Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d168de435762b407bca24"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Madurai",
+  "dateCreated": {
+    "$date": "2025-06-02T03:12:13.402Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d16b0e435762b407bca28"
+  },
+  "adminemail": "admin@gmail.com",
+  "location": "Tirunelveli",
+  "dateCreated": {
+    "$date": "2025-06-02T03:12:48.030Z"
+  },
+  "__v": 0
+}]

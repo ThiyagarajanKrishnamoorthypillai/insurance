@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "683c4e7346ca4a2f74fcf749"
+  },
+  "isAdmin": false,
+  "city": "Chennai",
+  "name": "Customer",
+  "email": "customer@gmail.com",
+  "passwordHash": "$2a$10$dQOzrI4smgtlw6ShFjNECOWTXqVZB7X9TxeX8u/P5S4ElJHVx9ia.",
+  "phone": "9876543210",
+  "question1": "Dog",
+  "question2": "Sathish",
+  "dateCreated": {
+    "$date": "2025-06-01T12:58:27.662Z"
+  },
+  "__v": 0
+}]

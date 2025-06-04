@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "683c0f8e77c8f11f340d15c3"
+  },
+  "location": "Mayiladuthurai",
+  "name": "Agent",
+  "email": "agent@gmail.com",
+  "passwordHash": "$2a$10$CqIZZnxL4xclV.R/dJxSrO.Z3voXESLp5M3S2QetKaG93zjeWbjXu",
+  "mobile": "9876543210",
+  "dateCreated": {
+    "$date": "2025-06-01T08:30:06.664Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d1630e435762b407bca02"
+  },
+  "location": "Mayiladuthurai",
+  "name": "Agent_1",
+  "email": "agent1@gmail.com",
+  "passwordHash": "$2a$10$FnZdQUa.iUKU/S7DppusDO4Zax5SJWalLufporoMSA0ET7lzq4Up6",
+  "mobile": "9876543210",
+  "dateCreated": {
+    "$date": "2025-06-02T03:10:40.065Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d16cce435762b407bca2e"
+  },
+  "location": "Ambattur, Chennai",
+  "name": "Agent_2",
+  "email": "agent2@gmail.com",
+  "passwordHash": "$2a$10$jlBFD/4W/q7lBlFdQw5JwupSfXUL.CWKOtdw01cNNPdjU/yrJahd.",
+  "mobile": "9876543210",
+  "dateCreated": {
+    "$date": "2025-06-02T03:13:16.877Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683d16e2e435762b407bca32"
+  },
+  "location": "Rock Fort, Trichy",
+  "name": "Agent_3",
+  "email": "agent3@gmail.com",
+  "passwordHash": "$2a$10$fm3ZufH5qFFtRt6PqMXmVOTGBE7DxzzRehRSjR1RgXfHL0d4q/e9q",
+  "mobile": "9876543210",
+  "dateCreated": {
+    "$date": "2025-06-02T03:13:38.420Z"
+  },
+  "__v": 0
+}]

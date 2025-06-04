@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "683ccc7d40ea1a40d4d6b078"
+  },
+  "status": "Approved",
+  "policyNumber": "POL0000321",
+  "planName": "Third-Party Liability Insurance",
+  "name": "Customer",
+  "email": "customer@gmail.com",
+  "mobile": "9876543210",
+  "vehicleNo": "TN 01 AA 1234",
+  "coverage": "ok",
+  "exclusions": "ok",
+  "eligibility": "Availables",
+  "validity": "1 year",
+  "location": "Mayiladuthurai",
+  "agentemail": "agent@gmail.com",
+  "mobile1": "9876543210",
+  "typeOfDamage": "Natural",
+  "dateOfIncident": "2025-05-29",
+  "claimDateCreated": "2025-06-01",
+  "photo": "public\\uploads\\1748814973395-496852749-ai-image-1747157053080.jpg",
+  "createdAt": {
+    "$date": "2025-06-01T21:56:13.491Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-01T23:27:42.028Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "683ccea91f14803e0cff09dd"
+  },
+  "photo": [
+    "public\\uploads\\1748815529568-191350394-ai-image-1747971925991.jpg",
+    "public\\uploads\\1748815529731-199573045-preset3.png.png"
+  ],
+  "status": "Pending",
+  "policyNumber": "POL0000321",
+  "planName": "Third-Party Liability Insurance",
+  "name": "Customer",
+  "email": "customer@gmail.com",
+  "mobile": "9876543210",
+  "vehicleNo": "TN 01 AA 1234",
+  "coverage": "ok",
+  "exclusions": "ok",
+  "eligibility": "Availables",
+  "validity": "1 year",
+  "location": "Mayiladuthurai",
+  "agentemail": "agent@gmail.com",
+  "mobile1": "9876543210",
+  "typeOfDamage": "Disaster",
+  "dateOfIncident": "2025-05-28",
+  "claimDateCreated": "2025-06-01",
+  "createdAt": {
+    "$date": "2025-06-01T22:05:29.797Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-01T22:05:29.797Z"
+  },
+  "__v": 0
+}]
