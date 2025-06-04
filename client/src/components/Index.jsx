@@ -4,7 +4,7 @@ import "./css/bootstrap.min.css";
 import "./css/style.css";
 import imgSmall from "./img/core-img/logo-small.png";
 import imgBg from "./img/bg-img/accountability.png";
-import imgBack from "./img/bg-img/wall.jpeg";
+import imgBack from "./img/bg-img/wall.jpg";
 import Title from './Title.jsx';
 
 const Index = () => {
