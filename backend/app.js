@@ -56,9 +56,15 @@ validateLicense(); // Run async without blocking
 
 // This middleware will block protected routes if license is invalid
 app.use((req, res, next) => {
-  if (!isLicenseValid) {
+  const allowWithoutLicense = [
+    '/api/v1/admin/login',
+    '/api/v1/admin/register', // optional, add if you want to allow register too
+  ];
+
+  if (!isLicenseValid && !allowWithoutLicense.includes(req.path)) {
     return res.status(403).json({ message: 'License validation failed' });
   }
+
   next();
 });
 
