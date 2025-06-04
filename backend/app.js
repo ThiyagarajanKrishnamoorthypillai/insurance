@@ -29,32 +29,44 @@ machineId.machineId()
   
 
 // Middleware to check for a valid license
-app.use(async (req, res, next) => {
+async function validateLicenseAndStartServer() {
   try {
     const configData = await fs.readFile(configPath, 'utf-8');
     const config = JSON.parse(configData);
     const storedLicense = config.license;
 
+    const machineID = await machineId.machineId();
+
     if (storedLicense.licenseCode === license && storedLicense.deviceId === machineID) {
-      //console.log('Valid license');
-      next();
-      // Send a success response
-      //return res.json({ message: 'Valid license' });
-    } 
-    
-  
-  } catch (error) {
-    console.error('Invalid or missing license information. Please verify the license.');
-    process.exit(1); // Exit the application if the license is not valid
+      // ✅ Start server only if license is valid
+      const port = process.env.PORT || 4000;
+      app.listen(port, '0.0.0.0', () => {
+        console.log(`✅ Server is running on http://0.0.0.0:${port}`);
+      });
+    } else {
+      console.error('❌ Invalid license or device ID');
+      process.exit(1);
+    }
+
+  } catch (err) {
+    console.error('❌ License verification failed:', err.message);
+    process.exit(1);
   }
-});
+}
+
+validateLicenseAndStartServer();
+
+
 
 
 
 
 require('dotenv/config');
-
-app.use(cors());
+app.use(cors({
+  origin: 'https://vehicle-insurance-cloud.vercel.app', // ✅ Allow frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true // ✅ Allow cookies/headers if needed
+}));
 app.options('*', cors())
 
 //middleware
