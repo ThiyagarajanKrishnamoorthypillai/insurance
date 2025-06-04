@@ -28,56 +28,33 @@ machineId.machineId()
 
   
 
-let isLicenseValid = false;
-
-
-const validateLicense = async () => {
+// Middleware to check for a valid license
+app.use(async (req, res, next) => {
   try {
     const configData = await fs.readFile(configPath, 'utf-8');
     const config = JSON.parse(configData);
     const storedLicense = config.license;
-    machineID = await machineId.machineId();
 
-    if (
-      storedLicense.licenseCode === license &&
-      storedLicense.deviceId === machineID
-    ) {
-      console.log('✅ License is valid.');
-      isLicenseValid = true;
-    } else {
-      console.error('❌ Invalid license or device ID');
-    }
-  } catch (err) {
-    console.error('❌ License check error:', err.message);
+    if (storedLicense.licenseCode === license && storedLicense.deviceId === machineID) {
+      //console.log('Valid license');
+      next();
+      // Send a success response
+      //return res.json({ message: 'Valid license' });
+    } 
+    
+  
+  } catch (error) {
+    console.error('Invalid or missing license information. Please verify the license.');
+    process.exit(1); // Exit the application if the license is not valid
   }
-};
-
-validateLicense(); // Run async without blocking
-
-// This middleware will block protected routes if license is invalid
-app.use((req, res, next) => {
-  const allowWithoutLicense = [
-    '/api/v1/admin/login',
-    '/api/v1/admin/register', // optional, add if you want to allow register too
-  ];
-
-  if (!isLicenseValid && !allowWithoutLicense.includes(req.path)) {
-    return res.status(403).json({ message: 'License validation failed' });
-  }
-
-  next();
 });
 
 
 
 
-
 require('dotenv/config');
-app.use(cors({
-  origin: 'https://vehicle-insurance-cloud.vercel.app', // ✅ Allow frontend domain
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true // ✅ Allow cookies/headers if needed
-}));
+
+app.use(cors());
 app.options('*', cors())
 
 //middleware
@@ -148,6 +125,5 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 
 //Server
 const port = process.env.PORT || 4000;
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server is running on http://0.0.0.0:${port}`);
-});
+app.listen(port, '0.0.0.0', () => console.log(`Server running on ${port}`));
+
