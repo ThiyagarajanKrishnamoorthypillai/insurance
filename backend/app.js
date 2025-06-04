@@ -51,9 +51,21 @@ app.use(async (req, res, next) => {
 
 require('dotenv/config');
 
+const allowedOrigins = [
+  'https://vehicle-insurance-cloud.vercel.app', // ✅ Your frontend
+];
+
 app.use(cors({
-  origin: 'https://your-vercel-app.vercel.app', // ✅ Replace with actual Vercel frontend domain
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'x-auth-token'],
 }));
 
 app.options('*', cors())

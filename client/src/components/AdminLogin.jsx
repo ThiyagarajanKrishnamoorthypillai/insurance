@@ -25,7 +25,9 @@ const AdminLogin = () => {
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/admin/login`, {
         email,
         password,
-      });
+      }, {
+  withCredentials: true
+});
 
       if (response.status === 200) {
         const { token } = response.data;
