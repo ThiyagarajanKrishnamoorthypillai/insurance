@@ -28,34 +28,39 @@ machineId.machineId()
 
   
 
-// Middleware to check for a valid license
-async function validateLicenseAndStartServer() {
+let isLicenseValid = false;
+
+
+const validateLicense = async () => {
   try {
     const configData = await fs.readFile(configPath, 'utf-8');
     const config = JSON.parse(configData);
     const storedLicense = config.license;
+    machineID = await machineId.machineId();
 
-    const machineID = await machineId.machineId();
-
-    if (storedLicense.licenseCode === license && storedLicense.deviceId === machineID) {
-      // ✅ Start server only if license is valid
-      const port = process.env.PORT || 4000;
-      app.listen(port, '0.0.0.0', () => {
-        console.log(`✅ Server is running on http://0.0.0.0:${port}`);
-      });
+    if (
+      storedLicense.licenseCode === license &&
+      storedLicense.deviceId === machineID
+    ) {
+      console.log('✅ License is valid.');
+      isLicenseValid = true;
     } else {
       console.error('❌ Invalid license or device ID');
-      process.exit(1);
     }
-
   } catch (err) {
-    console.error('❌ License verification failed:', err.message);
-    process.exit(1);
+    console.error('❌ License check error:', err.message);
   }
-}
+};
 
-validateLicenseAndStartServer();
+validateLicense(); // Run async without blocking
 
+// This middleware will block protected routes if license is invalid
+app.use((req, res, next) => {
+  if (!isLicenseValid) {
+    return res.status(403).json({ message: 'License validation failed' });
+  }
+  next();
+});
 
 
 
