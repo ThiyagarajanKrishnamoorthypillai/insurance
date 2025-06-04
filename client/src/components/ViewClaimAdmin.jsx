@@ -15,7 +15,7 @@ const ViewClaimAdmin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/v1/claim/`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/claim/`);
         if (res.status === 200) setClaims(res.data);
       } catch (err) {
         console.error("Failed to fetch claim data", err);
@@ -108,7 +108,7 @@ const ViewClaimAdmin = () => {
                         {item.photo && item.photo.map((photo, idx) => (
                           <img
                             key={idx}
-                            src={`http://localhost:4000/${resolveImagePath(photo)}`}
+                           src={photo}
                             alt="Claim"
                             style={{
                               height: 100,
@@ -117,7 +117,7 @@ const ViewClaimAdmin = () => {
                               cursor: "pointer",
                               borderRadius: 6
                             }}
-                            onClick={() => setPreviewImage(`http://localhost:4000/${resolveImagePath(photo)}`)}
+                           onClick={() => setPreviewImage(photo)}
                           />
                         ))}
                       </div>

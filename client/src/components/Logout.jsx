@@ -6,7 +6,6 @@ import "./css/bootstrap.min.css";
 import "./css/owl.carousel.min.css";
 import "./css/font-awesome.min.css";
 import "./css/animate.css";
-import "./css/font-awesome.min.css";
 import "./css/lineicons.min.css";
 import "./css/magnific-popup.css";
 import "./css/style.css";
@@ -15,20 +14,20 @@ const Logout = () => {
   const history = useNavigate ();
 
   const handleLogout = () => {
-    // Delete the cookies
-    Cookies.remove('email');
-    Cookies.remove('driveremail');
-    Cookies.remove('adminemail');
-    Cookies.remove('token'); // Add other cookies to delete if needed
+  Cookies.remove('email');
+  Cookies.remove('adminemail');
+  Cookies.remove('agentemail');
+  Cookies.remove('cook_location');
+  Cookies.remove('cook_department');
+  Cookies.remove('mobile1');
+  Cookies.remove('token');
 
-    // Redirect to the login page or any other desired route
-    //history.push('/');
-     // Delete the token from localStorage
-    localStorage.removeItem('token');
+  localStorage.removeItem('token');
 
-    alert('Logout Successful!');
-    window.location.href = "/";
-  };
+  alert('Logout Successful!');
+  window.location.href = "/";
+};
+
 
   return (
     <div>

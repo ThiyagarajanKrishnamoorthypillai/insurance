@@ -23,8 +23,6 @@ const ApplyClaimUser = () => {
     }
   }, [insuranceData, navigate]);
 
-  if (!insuranceData) return null;
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -40,15 +38,13 @@ const ApplyClaimUser = () => {
       const data = new FormData();
       for (const key in formData) {
         if (key === 'photo') {
-          formData.photo.forEach(file => {
-            data.append('photo[]', file);
-          });
+          formData.photo.forEach(file => data.append('photo[]', file));
         } else {
           data.append(key, formData[key]);
         }
       }
 
-      await axios.post("http://localhost:4000/api/v1/claim", data, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/claim`, data, {
         headers: { "Content-Type": "multipart/form-data" }
       });
 
@@ -60,10 +56,11 @@ const ApplyClaimUser = () => {
     }
   };
 
+  if (!insuranceData) return null;
+
   return (
     <div className="container py-4">
       <h4 className="mb-4 text-primary fw-bold text-center">Apply for Insurance Claim</h4>
-
       <form onSubmit={handleSubmit} className="row g-3" encType="multipart/form-data">
         {[
           ["Policy Number", "policyNumber"],
@@ -86,7 +83,6 @@ const ApplyClaimUser = () => {
           </div>
         ))}
 
-        {/* Additional Inputs */}
         <div className="col-md-12">
           <label className="text-dark">Type of Damage</label>
           <textarea
@@ -94,7 +90,6 @@ const ApplyClaimUser = () => {
             name="typeOfDamage"
             value={formData.typeOfDamage}
             onChange={handleChange}
-            placeholder="Describe the type of damage"
             required
           />
         </div>
@@ -117,8 +112,8 @@ const ApplyClaimUser = () => {
             type="file"
             className="form-control"
             accept="image/*"
-            onChange={handleFileChange}
             multiple
+            onChange={handleFileChange}
             required
           />
         </div>

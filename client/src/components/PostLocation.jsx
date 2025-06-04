@@ -42,7 +42,7 @@ const PostLocation = () => {
   useEffect(() => {
     const fetchLocationData = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/v1/location/');
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/location/`);
         if (response.status === 200) {
           setLocationData(response.data);
         } else {
@@ -59,9 +59,9 @@ const PostLocation = () => {
 
   const postLocationData = async () => {
     const token = localStorage.getItem('token');
-    const adminEmail = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)adminemail\s*=\s*([^;]*).*$)|^.*$/, '$1'));
+const adminEmail = Cookies.get('adminemail');
     try {
-      const response = await fetch('http://localhost:4000/api/v1/location/', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/location/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ const PostLocation = () => {
     if (window.confirm('Do you want to remove?')) {
       const token = localStorage.getItem('token');
 
-        fetch("http://localhost:4000/api/v1/location/" + id, {
+       fetch(`${import.meta.env.VITE_API_URL}/location/` + id, {
             method: "DELETE",
             headers: {
               'Content-Type': 'application/json',

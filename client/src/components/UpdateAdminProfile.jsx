@@ -37,7 +37,7 @@ const UpdateAdminProfile = () => {
   useEffect(() => {
     const fetchOfficerDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/v1/admin/${id}`);
+       const response = await fetch(`${import.meta.env.VITE_API_URL}/admin/${id}`);
         if (response.ok) {
           const data = await response.json();
           setEditedOfficer({
@@ -77,11 +77,11 @@ const UpdateAdminProfile = () => {
         return;
       }*/}
 
-      const response = await fetch(`http://localhost:4000/api/v1/admin/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/admin/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-        //  'x-auth-token': token,
+          'x-auth-token': token,
         },
         body: JSON.stringify(editedOfficer),
       });
@@ -123,7 +123,7 @@ const UpdateAdminProfile = () => {
         <div className="sidenav-profile">
           <div className="user-profile"><img src={imgBg} alt=""/></div>
           <div className="user-info">
-           <h6 className="user-name mb-1">Online Complaint Registration Management System</h6>
+           <h6 className="user-name mb-1">Web Based Vehicle Insurance Management System</h6>
          
           </div>
         </div>
@@ -141,7 +141,7 @@ const UpdateAdminProfile = () => {
       <div className="top-products-area py-3">
         <div className="container">
           <div className="section-heading d-flex align-items-center justify-content-between">
-            <h6>Edit Officer details</h6>
+            <h6>Edit Admin details</h6>
           </div>
         {/* Form Scrip Start*/}
         <div className="profile-wrapper-area py-3">

@@ -23,8 +23,8 @@ const ViewInsurancePlanAdmin = () => {
   useEffect(() => {
     const fetchPlanData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/plan/`);
-        if (response.status === 200) setPlanData(response.data);
+const response = await axios.get(`${import.meta.env.VITE_API_URL}/plan/`);
+              if (response.status === 200) setPlanData(response.data);
         else console.error('Error fetching plan data:', response.statusText);
       } catch (error) {
         console.error('Error fetching plan data:', error.message);
@@ -47,7 +47,7 @@ const ViewInsurancePlanAdmin = () => {
     if (window.confirm('Do you want to remove?')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:4000/api/v1/plan/${id}`, {
+        await axios.delete(`${import.meta.env.VITE_API_URL}/plan/${id}`, {
           headers: { 'x-auth-token': token },
         });
         alert('Removed successfully.');

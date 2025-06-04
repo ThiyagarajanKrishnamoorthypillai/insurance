@@ -20,7 +20,7 @@ import imgSmall from "./img/core-img/logo-small.png";
 import imgBg from "./img/bg-img/9.png";
 import Logout from './Logout.jsx';
 import Title from './Title.jsx';
-
+import Cookies from 'js-cookie';
 // useremail  Claim mobile lat long status
 
 const PostClaim = () => {
@@ -44,9 +44,9 @@ const PostClaim = () => {
 
   const postClaimData = async () => {
     const token = localStorage.getItem('token');
-    const userEmail = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)email\s*=\s*([^;]*).*$)|^.*$/, '$1'));
-    try {
-      const response = await fetch('http://localhost:4000/api/v1/claim/', {
+
+const userEmail = Cookies.get('email');    try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/claim/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const PostClaim = () => {
   useEffect(() => {
     const fetchLocation = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/v1/location');
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/location`);
         if (response.ok) {
           const data = await response.json();
           setLocation(data);

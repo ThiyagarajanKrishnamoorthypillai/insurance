@@ -4,21 +4,19 @@ const router = express.Router();
 const auth = require('../helpers/jwt');
 const multer = require('multer');
 const path = require('path');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('../helpers/cloudinary');
 
+// Cloudinary multer storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'insurance',
+    allowed_formats: ['jpg', 'jpeg', 'png'],
+  },
+});
 
-// Set up multer storage for storing uploaded images
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'public/uploads/');
-    },
-    filename: function (req, file, cb) {
-      cb(null, Date.now() + '-' + file.originalname);
-    },
-  });
-  
-  const upload = multer({ storage: storage });
-
-
+const upload = multer({ storage });
 
 
 
@@ -46,7 +44,7 @@ router.get(`/:id`, async (req, res) =>{
 
 router.post('/', upload.array('vehiclePhotos', 10), async (req, res) => {
   try {
-    const photoPaths = req.files ? req.files.map(f => `uploads/${f.filename}`) : [];
+const photoPaths = req.files ? req.files.map(f => f.path) : [];
 
     // Generate new policy number
     const lastPolicy = await Insurance.findOne().sort({ policyNumber: -1 }).exec();

@@ -33,7 +33,7 @@ const ViewAgentAdmin = () => {
   useEffect(() => {
     const fetchAgentData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/agent/`);
+       const response = await axios.get(`${import.meta.env.VITE_API_URL}/agent/`);
         if (response.status === 200) {
           setAgentData(response.data);
         } else {
@@ -65,12 +65,12 @@ const ViewAgentAdmin = () => {
     if (window.confirm('Do you want to remove?')) {
       const token = localStorage.getItem('token');
 
-        fetch("http://localhost:4000/api/v1/agent/" + id, {
-            method: "DELETE",
-            headers: {
-              'Content-Type': 'application/json',
-              'x-auth-token': token,
-            },
+       fetch(`${import.meta.env.VITE_API_URL}/agent/` + id, {
+  method: "DELETE",
+  headers: {
+    'Content-Type': 'application/json',
+    'x-auth-token': token,
+  },
         }).then((res) => {
            alert('Removed successfully.')
             window.location.reload();

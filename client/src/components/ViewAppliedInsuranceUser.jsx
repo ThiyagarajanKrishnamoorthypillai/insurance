@@ -17,7 +17,7 @@ const navigate = useNavigate();
   useEffect(() => {
     const fetchInsurances = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/v1/insurance");
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/insurance`);
         const filtered = res.data.filter(entry => entry.email === userEmail);
         setInsuranceList(filtered);
       } catch (err) {
@@ -125,11 +125,11 @@ const navigate = useNavigate();
                       {item.vehiclePhotos?.map((url, idx) => (
                         <div className="col-6 col-md-3 mb-3" key={idx}>
                           <img
-                            src={`http://localhost:4000/${url}`}
+                            src={url}
                             alt={`Vehicle ${idx + 1}`}
                             className="img-fluid rounded"
                             style={{ cursor: 'pointer', border: '1px solid #ccc' }}
-                            onClick={() => openImageModal(`http://localhost:4000/${url}`)}
+                            onClick={() => openImageModal(url)}
                           />
                         </div>
                       ))}

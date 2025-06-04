@@ -15,7 +15,7 @@ const ViewInsuranceAdmin = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/api/v1/insurance/`);
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/insurance/`);
         if (res.status === 200) {
           setInsuranceData(res.data);
         }
@@ -112,7 +112,7 @@ const ViewInsuranceAdmin = () => {
                         {item.vehiclePhotos && item.vehiclePhotos.map((photo, idx) => (
                           <img
                             key={idx}
-                            src={`http://localhost:4000/${photo}`}
+                            src={photo}
                             alt="Vehicle"
                             style={{
                               height: 100,
@@ -121,7 +121,7 @@ const ViewInsuranceAdmin = () => {
                               cursor: "pointer",
                               borderRadius: 6
                             }}
-                            onClick={() => setPreviewImage(`http://localhost:4000/${photo}`)}
+                           onClick={() => setPreviewImage(photo)}
                           />
                         ))}
                       </div>

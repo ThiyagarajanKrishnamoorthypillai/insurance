@@ -28,7 +28,7 @@ const ViewFeedback = () => {
   useEffect(() => {
     const fetchComplaintData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/feedback/`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/feedback/`);
         if (response.status === 200) {
           setComplaintData(response.data);
         } else {

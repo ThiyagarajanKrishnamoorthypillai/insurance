@@ -16,7 +16,7 @@ const ViewClaimAgent = () => {
   useEffect(() => {
     const fetchClaims = async () => {
       try {
-        const res = await fetch('http://localhost:4000/api/v1/claim');
+const res = await fetch(`${import.meta.env.VITE_API_URL}/claim`);
         const data = await res.json();
         const filtered = data.filter(claim => claim.location === userLocation);
         setClaims(filtered);
@@ -30,7 +30,7 @@ const ViewClaimAgent = () => {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      const res = await fetch(`http://localhost:4000/api/v1/claim/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/claim/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus })
@@ -123,10 +123,10 @@ const ViewClaimAgent = () => {
                           {claim.photo && claim.photo.map((img, idx) => (
                             <img
                               key={idx}
-                              src={`http://localhost:4000/${img}`}
+                              src={img}
                               alt="Claim"
                               style={{ width: 100, height: 100, objectFit: 'cover', borderRadius: 6, cursor: 'pointer' }}
-                              onClick={() => setPreviewImage(`http://localhost:4000/${img}`)}
+                              onClick={() => setPreviewImage(img)}
                             />
                           ))}
                         </div>

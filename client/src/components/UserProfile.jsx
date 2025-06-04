@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
-
+import Cookies from 'js-cookie';
 import "./css/bootstrap.min.css";
 import "./css/owl.carousel.min.css";
 import "./css/font-awesome.min.css";
@@ -32,11 +32,10 @@ const EditProfile = (id) => {
   useEffect(() => {
     const fetchBinData = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/v1/user/');
+       const response = await fetch(`${import.meta.env.VITE_API_URL}/user/`);
         const data = await response.json();
         // Assuming 'email' is the key in cookies
-        const useremail = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)email\s*=\s*([^;]*).*$)|^.*$/, '$1'));
-         // Filter location data based on vendoremail
+          const useremail = Cookies.get('email');         // Filter location data based on
          const filteredBin = data.filter((user) => user.email === useremail);
         if (response.status === 200) {
           setBinData(filteredBin);

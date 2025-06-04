@@ -28,7 +28,7 @@ const ViewContactUser = () => {
   useEffect(() => {
     const fetchComplaintData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/agent/`);
+       const response = await axios.get(`${import.meta.env.VITE_API_URL}/agent/`);
         if (response.status === 200) {
           setComplaintData(response.data);
         } else {

@@ -32,7 +32,7 @@ const UserRegister = () => {
       useEffect(() => {
         const fetchExistingEmails = async () => {
           try {
-            const response = await axios.get('http://localhost:4000/api/v1/user/');
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/user/`);
             const emails = response.data.map(user => user.email);
             setExistingEmails(emails);
           } catch (error) {
@@ -90,7 +90,7 @@ const UserRegister = () => {
       // Post Function
       const postRegisterData = async () => {
         try {
-          const response = await fetch('http://localhost:4000/api/v1/user/', {
+          const response = await fetch(`${import.meta.env.VITE_API_URL}/user/`, { 
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

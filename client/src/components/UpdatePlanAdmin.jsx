@@ -29,7 +29,7 @@ const UpdatePlanAdmin = () => {
   useEffect(() => {
     const fetchPlan = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/plan/${id}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/plan/${id}`);
         if (response.status === 200) {
           const plan = response.data;
           setFormData({
@@ -55,10 +55,10 @@ const UpdatePlanAdmin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:4000/api/v1/plan/${id}`, {
-        ...formData,
-        addOns: formData.addOns.split(',').map(a => a.trim())
-      });
+      await axios.put(`${import.meta.env.VITE_API_URL}/plan/${id}`, {
+  ...formData,
+  addOns: formData.addOns.split(',').map(a => a.trim())
+});
       alert("Plan updated successfully!");
       navigate("/view_insurance_plan_admin");
     } catch (error) {

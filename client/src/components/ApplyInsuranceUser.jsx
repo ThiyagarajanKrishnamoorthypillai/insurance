@@ -29,7 +29,7 @@ const [vehiclePhotos, setVehiclePhotos] = useState([]);
   useEffect(() => {
     const fetchLocations = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/v1/location");
+       const res = await axios.get(`${import.meta.env.VITE_API_URL}/location`);
         setLocations(res.data);
       } catch (err) {
         console.error("Error loading locations:", err);
@@ -49,7 +49,7 @@ const [vehiclePhotos, setVehiclePhotos] = useState([]);
   };
 
   const handleImageChange = (e) => {
-    setVehiclePhoto(e.target.files[0]);
+setVehiclePhotos([...e.target.files]);
   };
 
   const handleApply = async (e) => {
@@ -84,12 +84,11 @@ const [vehiclePhotos, setVehiclePhotos] = useState([]);
   });
 
   try {
-    const res = await axios.post("http://localhost:4000/api/v1/insurance", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data"
-      }
-    });
-
+    const res = await axios.post(`${import.meta.env.VITE_API_URL}/insurance`, formData, {
+  headers: {
+    "Content-Type": "multipart/form-data"
+  }
+});
     alert("Insurance applied successfully!\nPolicy No: " + res.data.policyNumber);
     navigate("/user_home");
   } catch (err) {

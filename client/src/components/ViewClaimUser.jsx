@@ -27,7 +27,7 @@ const ViewClaimUser = () => {
     }
 
     try {
-const res = await axios.get(`http://localhost:4000/api/v1/claim/user/${email}`);
+const res = await axios.get(`${import.meta.env.VITE_API_URL}/claim/user/${email}`);
       setClaimData(res.data);
     } catch (err) {
       console.error("Error fetching claims:", err.message);
@@ -112,7 +112,7 @@ const res = await axios.get(`http://localhost:4000/api/v1/claim/user/${email}`);
   {claim.photo && claim.photo.length > 0 && claim.photo.map((img, idx) => (
     <img
       key={idx}
-      src={`http://localhost:4000/${img}`}
+      src={img}
       alt="Claim"
       style={{
   height: 100,
@@ -125,7 +125,7 @@ const res = await axios.get(`http://localhost:4000/api/v1/claim/user/${email}`);
 onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
 onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1.0)'}
 
-      onClick={() => window.open(`http://localhost:4000/${img}`, '_blank')}
+     onClick={() => window.open(img, '_blank')}
     />
   ))}
 </div>

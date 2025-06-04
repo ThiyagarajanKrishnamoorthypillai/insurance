@@ -6,11 +6,11 @@ import imgSmall from "./img/core-img/logo-small.png";
 import imgBg from "./img/bg-img/9.png";
 import Logout from './Logout.jsx';
 import Title from './Title.jsx';
+import Cookies from 'js-cookie';
+
 
 const PostFeedbackUser = () => {
-  const userEmail = decodeURIComponent(
-    document.cookie.replace(/(?:(?:^|.*;\s*)email\s*=\s*([^;]*).*$)|^.*$/, '$1')
-  );
+  const userEmail = Cookies.get('email');
 
   const [formData, setFormData] = useState({
     name: '',
@@ -24,7 +24,7 @@ const PostFeedbackUser = () => {
   useEffect(() => {
     const fetchLocations = async () => {
       try {
-        const res = await fetch("http://localhost:4000/api/v1/location");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/location`);
         const data = await res.json();
         setLocations(data);
       } catch (err) {
@@ -43,7 +43,7 @@ const PostFeedbackUser = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:4000/api/v1/feedback/", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/feedback/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

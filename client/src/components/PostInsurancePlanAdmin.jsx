@@ -20,6 +20,7 @@ import imgSmall from "./img/core-img/logo-small.png";
 import imgBg from "./img/bg-img/9.png";
 import Logout from './Logout.jsx';
 import Title from './Title.jsx';
+import Cookies from 'js-cookie';
 
 // name  Agentname mechanicname service available  locality address city mobile 
 
@@ -49,10 +50,10 @@ const PostInsurancePlanAdmin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    const adminEmail = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)adminemail\s*=\s*([^;]*).*$)|^.*$/, '$1'));
+const adminEmail = Cookies.get('adminemail');
 
     try {
-      const response = await fetch('http://localhost:4000/api/v1/plan/', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/plan/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

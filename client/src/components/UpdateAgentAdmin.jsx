@@ -40,7 +40,7 @@ const UpdateAgentAdmin = () => {
 useEffect(() => {
   const fetchLocation = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/v1/agent`);
+const response = await fetch(`${import.meta.env.VITE_API_URL}/agent`);
       if (response.ok) {
         const data = await response.json();
         setLocation(data);
@@ -59,7 +59,7 @@ useEffect(() => {
   useEffect(() => {
     const fetchAgentDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/v1/agent/${id}`);
+const response = await fetch(`${import.meta.env.VITE_API_URL}/agent/${id}`);
         if (response.ok) {
           const data = await response.json();
           setEditedAgent({
@@ -102,11 +102,11 @@ useEffect(() => {
         return;
       }*/}
 
-      const response = await fetch(`http://localhost:4000/api/v1/agent/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/agent/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-        //  'x-auth-token': token,
+         'x-auth-token': token,
         },
         body: JSON.stringify(editedAgent),
       });

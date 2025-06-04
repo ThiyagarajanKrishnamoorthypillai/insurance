@@ -101,8 +101,8 @@ app.use(`${api}/insurance`, insuranceRoutes);
 app.use(`${api}/claim`, claimRoutes);
 
 // Static folders
-app.use('/uploads', express.static(path.join(__dirname, 'public/uploads'))); // ✅ for images
-app.use('/public', express.static(path.join(__dirname, 'public'))); // already exists
+///app.use('/uploads', express.static(path.join(__dirname, 'public/uploads'))); // ✅ for images
+//app.use('/public', express.static(path.join(__dirname, 'public'))); // already exists
 
 
 //CONNECTION_STRING = 'mongodb://localhost:27017/';
@@ -124,13 +124,5 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 })
 
 //Server
-app.listen(4000, ()=>{
-
-    console.log('server is running http://localhost:4000');
-})
-
-{/*
-app.get("/message", (req, res) => {
-    res.json({ message: "Hello from server!" });
-  });
-*/}
+const port = process.env.PORT || 4000;
+app.listen(port, () => console.log(`Server running on ${port}`));

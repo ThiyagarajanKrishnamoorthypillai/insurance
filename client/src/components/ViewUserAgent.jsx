@@ -34,7 +34,7 @@ const ViewUserAgent = () => {
   useEffect(() => {
     const fetchBinData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/user/`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/user/`);
         if (response.status === 200) {
           setBinData(response.data);
         } else {

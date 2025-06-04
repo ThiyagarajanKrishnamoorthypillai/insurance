@@ -41,7 +41,7 @@ const UpdateComplaint = () => {
   useEffect(() => {
     const fetchComplaintDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/v1/complaint/${id}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/complaint/${id}`);
         if (response.ok) {
           const data = await response.json();
           setEditedComplaint({
@@ -86,14 +86,14 @@ const UpdateComplaint = () => {
         return;
       }*/}
 
-      const response = await fetch(`http://localhost:4000/api/v1/complaint/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-         'x-auth-token': token,
-        },
-        body: JSON.stringify(editedComplaint),
-      });
+     const response = await fetch(`${import.meta.env.VITE_API_URL}/complaint/${id}`, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-auth-token': token
+  },
+  body: JSON.stringify(editedComplaint),
+});
 
       if (response.ok) {
         console.log('Complaint details updated successfully!');

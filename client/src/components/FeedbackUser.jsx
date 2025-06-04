@@ -27,10 +27,10 @@ import Title from './Title.jsx';
 
 const FeedbackUser = () => {
 
- const userEmail = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)email\s*=\s*([^;]*).*$)|^.*$/, '$1'));
- const location = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)cook_location\s*=\s*([^;]*).*$)|^.*$/, '$1'));
- const department = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)cook_department\s*=\s*([^;]*).*$)|^.*$/, '$1'));
- 
+ const userEmail = Cookies.get('email');
+ const location = Cookies.get('cook_location');
+ const department = Cookies.get('cook_department');
+
  
  const [formData, setFormData] = useState({
     
@@ -46,7 +46,7 @@ const FeedbackUser = () => {
     //console.log(userEmail);  // Output: donar@gmail.com
     
     try {
-      const response = await fetch('http://localhost:4000/api/v1/feedback/', {
+     const response = await fetch(`${import.meta.env.VITE_API_URL}/feedback/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -14,7 +14,7 @@ const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     if (location) {
-      axios.get('http://localhost:4000/api/v1/insurance')
+      axios.get(`${import.meta.env.VITE_API_URL}/insurance`)
         .then((res) => {
           const filtered = res.data.filter(item => item.location === location);
           setData(filtered);
@@ -31,7 +31,7 @@ const [selectedImage, setSelectedImage] = useState(null);
     if (!newStatus) return alert("Select status to update.");
 
     try {
-      await axios.put(`http://localhost:4000/api/v1/insurance/status/${id}`, {
+      await axios.put(`${import.meta.env.VITE_API_URL}/insurance/status/${id}`, {
         status: newStatus,
         agentemail,
         location, mobile1,
@@ -101,10 +101,10 @@ useEffect(() => {
       {item.vehiclePhotos.map((url, i) => (
         <div className="col-6 col-md-4 mb-2" key={i}>
           <img
-            src={`http://localhost:4000/${url}`}
+            src={url}
             alt={`Vehicle ${i + 1}`}
             style={{ width: '100%', height: 'auto', borderRadius: '8px', border: '1px solid #ccc', cursor: 'pointer' }}
-            onClick={() => setSelectedImage(`http://localhost:4000/${url}`)}
+            onClick={() => setSelectedImage(url)}
           />
         </div>
       ))}

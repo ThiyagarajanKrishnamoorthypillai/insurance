@@ -31,7 +31,7 @@ const ViewInsuranceAgent = () => {
   useEffect(() => {
     const fetchInsuranceData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/plan/`);
+const response = await axios.get(`${import.meta.env.VITE_API_URL}/plan/`);
         if (response.status === 200) {
           setInsuranceData(response.data);
         } else {

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
+
 import "./css/bootstrap.min.css";
 import "./css/owl.carousel.min.css";
 import "./css/font-awesome.min.css";
@@ -40,11 +42,11 @@ const PostAgent = () => {
 
   const postAgentData = async () => {
     const token = localStorage.getItem('token');
-    const adminEmail = decodeURIComponent(document.cookie.replace(/(?:(?:^|.*;\s*)adminemail\s*=\s*([^;]*).*$)|^.*$/, '$1'));
+const adminEmail = Cookies.get('adminemail');
     //console.log(adminEmail);  // Output: Agent@gmail.com
 
     try {
-      const response = await fetch('http://localhost:4000/api/v1/agent/', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/agent/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -115,7 +117,7 @@ const PostAgent = () => {
   useEffect(() => {
     const fetchLocation = async () => {
       try {
-        const response = await fetch('http://localhost:4000/api/v1/location');
+const response = await fetch(`${import.meta.env.VITE_API_URL}/location`);
         if (response.ok) {
           const data = await response.json();
           setLocation(data);

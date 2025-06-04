@@ -3,19 +3,19 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const Claim = require('../models/claim');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('../helpers/cloudinary');
 
-// Configure multer for multiple file uploads
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/uploads/');
+// Cloudinary multer storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'claims',
+    allowed_formats: ['jpg', 'jpeg', 'png'],
   },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, uniqueSuffix + '-' + file.originalname);
-  }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 // @route   POST /api/v1/claim
 // @desc    Create a new claim with multiple photos
@@ -27,7 +27,7 @@ router.post('/', upload.array('photo[]', 10), async (req, res) => {
       mobile1, typeOfDamage, dateOfIncident, status, claimDateCreated
     } = req.body;
 
-    const photoPaths = req.files.map(file => file.path);
+const photoPaths = req.files.map(file => file.path); // This will be Cloudinary URLs
 
     const newClaim = new Claim({
       policyNumber, planName, name, email, mobile, vehicleNo,

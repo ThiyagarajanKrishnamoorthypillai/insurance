@@ -36,7 +36,7 @@ const UpdateLocationAdmin = () => {
   useEffect(() => {
     const fetchOfficerDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/v1/location/${id}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/location/${id}`);
         if (response.ok) {
           const data = await response.json();
           setEditedOfficer({
@@ -76,14 +76,15 @@ const UpdateLocationAdmin = () => {
         return;
       }*/}
 
-      const response = await fetch(`http://localhost:4000/api/v1/location/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        //  'x-auth-token': token,
-        },
-        body: JSON.stringify(editedOfficer),
-      });
+      // NEW
+const response = await fetch(`${import.meta.env.VITE_API_URL}/location/${id}`, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+    'x-auth-token': token
+  },
+  body: JSON.stringify(editedOfficer),
+});
 
       if (response.ok) {
         console.log('Location details updated successfully!');

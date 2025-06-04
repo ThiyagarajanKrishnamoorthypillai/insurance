@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link , useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import "./css/bootstrap.min.css";
 import "./css/owl.carousel.min.css";
 import "./css/font-awesome.min.css";
@@ -28,7 +29,7 @@ const MyFeedback = () => {
   useEffect(() => {
     const fetchComplaintData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/v1/feedback/`);
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/feedback/`);
         if (response.status === 200) {
           setComplaintData(response.data);
         } else {
@@ -50,9 +51,8 @@ const MyFeedback = () => {
      
         return isMatch;
   });  */
-     const officerDepartment = document.cookie.replace(/(?:(?:^|.*;\s*)officerDepartment\s*\=\s*([^;]*).*$)|^.*$/, '$1');
-     const officerLocation = document.cookie.replace(/(?:(?:^|.*;\s*)officerLocation\s*\=\s*([^;]*).*$)|^.*$/, '$1');
-     
+     const officerDepartment = Cookies.get('officerDepartment');
+const officerLocation = Cookies.get('officerLocation');
      // Filter data based on officerDepartment, officerLocation, and search term
      const filteredData = complaintData.filter((complaint) => {
        const isLocationMatch = officerLocation ? complaint.location.toLowerCase().includes(officerLocation.toLowerCase()) : true;
