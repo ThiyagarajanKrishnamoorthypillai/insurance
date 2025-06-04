@@ -36,16 +36,13 @@ app.use(async (req, res, next) => {
     const storedLicense = config.license;
 
     if (storedLicense.licenseCode === license && storedLicense.deviceId === machineID) {
-      //console.log('Valid license');
       next();
-      // Send a success response
-      //return res.json({ message: 'Valid license' });
-    } 
-    
-  
+    } else {
+      return res.status(403).json({ message: 'Invalid license' });
+    }
   } catch (error) {
-    console.error('Invalid or missing license information. Please verify the license.');
-    process.exit(1); // Exit the application if the license is not valid
+    console.error('License check error:', error.message);
+    return res.status(500).json({ message: 'License file missing or corrupted' });
   }
 });
 
@@ -54,7 +51,11 @@ app.use(async (req, res, next) => {
 
 require('dotenv/config');
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://your-vercel-app.vercel.app', // ✅ Replace with actual Vercel frontend domain
+  credentials: true
+}));
+
 app.options('*', cors())
 
 //middleware
@@ -86,7 +87,7 @@ const claimRoutes = require('./routes/claim');
 
 
 
-const api = process.env.API_URL;
+const api = process.env.API_URL || "/api/v1"; // good fallback
 
 
 // route call 
@@ -122,6 +123,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
 .catch((err)=> {
     console.log(err);
 })
+console.log("DB URI:", process.env.CONNECTION_STRING);
 
 //Server
 const port = process.env.PORT || 4000;
