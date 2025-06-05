@@ -91,7 +91,7 @@ const UserHome = () => {
                 <div className="card-body d-flex align-items-center">
                   <div className="card-body"><img src={viewcomplaint} className="img-fluid" style={{width:64, height:64}} />{" "}
                   <Link  style={{color:"darkblue"}} to="/view_applied_insurance_user">
-                   View Applied Insurance </Link> 
+                   View Applied Insurance & Apply Insurance Claim</Link> 
                     </div>
                 </div>
               </div>
