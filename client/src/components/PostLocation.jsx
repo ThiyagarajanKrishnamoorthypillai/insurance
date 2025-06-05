@@ -21,6 +21,7 @@ import imgSmall from "./img/core-img/logo-small.png";
 import imgBg from "./img/bg-img/9.png";
 import Logout from './Logout.jsx';
 import Title from './Title.jsx';
+import Cookies from 'js-cookie';
 
 // useremail  complaint mobile lat long status
 
