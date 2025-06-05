@@ -52,7 +52,8 @@ app.use(async (req, res, next) => {
 require('dotenv/config');
 
 const allowedOrigins = [
-  'https://vehicle-insurance-cloud.vercel.app', // ✅ Your frontend
+  'https://vehicle-insurance-cloud.vercel.app', // ✅ Vercel frontend
+  'http://localhost:3000' // ✅ for local testing
 ];
 
 app.use(cors({
@@ -65,10 +66,11 @@ app.use(cors({
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'x-auth-token'],
+  allowedHeaders: ['Content-Type', 'x-auth-token']
 }));
 
-app.options('*', cors())
+app.options('*', cors()); // ✅ Must be below cors()
+
 
 //middleware
 app.use(express.json());

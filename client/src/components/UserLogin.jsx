@@ -36,7 +36,9 @@ const UserLogin = () => {
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/user/login`, {
         email: email,
         password: password,
-      });
+      },{
+  withCredentials: true
+});
 
       // Check if the login was successful
       if (response.status === 200) {
